@@ -2,7 +2,15 @@
   "main": "node_modules/expo/AppEntry.js",
   "private": true,
   "scripts": {
-    "test": "node ./node_modules/jest/bin/jest.js --watchAll"
+    "test": "node ./node_modules/jest/bin/jest.js --watchAll",
+    "precommit": "lint-staged",
+    "lint:fix-all": "eslint --fix *.{js,jsx} **/*.{js,jsx}"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "jest": {
     "preset": "jest-expo"
